@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Propose Day 💍❤️</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5f8a, #ff85a2);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+
+  .content {
+    z-index: 10;
+    padding: 20px;
+  }
+
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+    animation: fadeIn 1.2s ease;
+    color: #FFD700;
+  }
+
+  h2 {
+    font-weight: 300;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    animation: fadeIn 1.8s ease;
+    color: #FFB6C1;
+  }
+
+  .buttons {
+    position: relative;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  #yesBtn {
+    background: white;
+    color: #FF1493;
+    font-weight: 500;
+  }
+
+  #yesBtn:hover {
+    transform: scale(1.1);
+  }
+
+  #noBtn {
+    background: rgba(255,255,255,0.6);
+    color: #333;
+    position: absolute;
+    right: -10px;
+  }
+
+  .message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    margin-top: 20px;
+    display: none;
+    white-space: pre-line;
+    animation: fadeIn 1s ease;
+    color: BLACK;
+  }
+
+  .float {
+    position: absolute;
+    animation: floatUp linear infinite;
+    opacity: 0.85;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="content">
+  <h1>💍 Happy Propose Day Baby 💖</h1>
+  <h2>Will you be mine forever? ❤️</h2>
+
+  <div class="buttons">
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">NO 🙈</button>
+  </div>
+
+  <div class="message" id="finalMsg"></div>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const finalMsg = document.getElementById("finalMsg");
+
+  const noMessages = [
+    "Aww come on 😝",
+    "Don’t be shy 🙈",
+    "My heart is waiting 💓🥺",
+    "Try again baby 😘",
+    "You know you want to 😏"
+  ];
+
+  // NO button hover effect
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 220 - 110;
+    const y = Math.random() * 160 - 80;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+    finalMsg.style.display = "block";
+    finalMsg.innerText = noMessages[Math.floor(Math.random() * noMessages.length)];
+  });
+
+  // YES button click
+  yesBtn.addEventListener("click", () => {
+    finalMsg.style.display = "block";
+    finalMsg.style.fontSize = "2.8rem"; // bigger, romantic
+    finalMsg.innerText = 
+      "💖 My heart is yours forever!\n" +
+      "You make my world brighter, my every day happier,\n" +
+      "and I can’t imagine my life without you ❤️\n" +
+      "Will you be mine forever? 💍🌹";
+
+    document.querySelector(".buttons").style.display = "none";
+  });
+
+  // Floating hearts, roses & rings
+  const symbols = ["❤️", "🌹", "💍"];
+  for (let i = 0; i < 35; i++) {
+    const item = document.createElement("div");
+    item.className = "float";
+    item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = 40 + Math.random() * 50 + "px"; // BIG ICONS
+    item.style.animationDuration = 4 + Math.random() * 6 + "s";
+    document.body.appendChild(item);
+  }
+</script>
+
+</body>
+</html>
